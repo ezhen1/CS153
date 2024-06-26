@@ -8,33 +8,31 @@ const Item = ({ item }) => (
   </View>
 );
 
-function InputScreen() {
-  const { input, setInput, inputs, setInputs } = useValue();
+function InputScreen2() {
+  const { input2, setInput2, inputs2, setInputs2 } = useValue();
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Input Page</Text>
+      <Text>Input Page: Habit Tracker</Text>
       <TextInput
         placeholder="Enter action"
-        onChangeText={(text) => setInput(text)}
-        value={input}
+        onChangeText={(text) => setInput2(text)}
+        value={input2}
         style={styles.input}
       />
       <Button
-        title="Add Task"
+        title="Add Habit"
         onPress={() => {
-        setInputs([...inputs, input]);
-        setInput('');
-        
+          setInputs2([...inputs2, input2]);
+          setInput2('');
         }}
       />
-      <Text style={styles.inputsText}>Current Checklist: {JSON.stringify(inputs)}</Text>
+      <Text style={styles.inputsText}>Current Checklist: {JSON.stringify(inputs2)}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
   input: {
     height: 40,
     borderColor: 'gray',
@@ -43,15 +41,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginVertical: 10,
   },
-  inputsText: {
-    marginTop: 20,
-    padding: 10,
+  item: {
     backgroundColor: 'yellow',
-    width: '80%',
-    textAlign: 'center',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    borderColor: 'black',
+    borderWidth: 1,
   },
 });
 
-export default InputScreen;
+export default InputScreen2;
 
-    

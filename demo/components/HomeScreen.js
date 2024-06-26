@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, FlatList, StyleSheet } from 'react-native';
+import { Text, View, FlatList, StyleSheet, ScrollView } from 'react-native';
 import { useValue } from './ValueContext';
 
 const Item = ({ item }) => (
@@ -10,16 +10,27 @@ const Item = ({ item }) => (
 
 function HomeScreen() {
   const { inputs } = useValue();
+  const { inputs2 } = useValue();
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <ScrollView>
       <Text style = {{marginTop: 30}}>Checklist:</Text>
-      <FlatList
-        data={inputs}
-        renderItem={({ item }) => <Item item={item} />}
-        keyExtractor={(item, index) => index.toString()}
+      <View>
+        <FlatList
+          data={inputs}
+          renderItem={({ item }) => <Item item={item} />}
+          keyExtractor={(item, index) => index.toString()}
+          style={styles.list}
+        />
+        <Text style = {{marginTop: 30}}>Habit Tracker:</Text>
+        <FlatList
+          data={inputs2}
+          renderItem={({ item }) => <Item item={item} />}
+          keyExtractor={(item, index) => index.toString()}
+          style={styles.list}
       />
-    </View>
+      </View>
+    </ScrollView>
   );
 }
 
