@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TextInput, StyleSheet, Button, FlatList } from 'react-native';
 import { useValue } from './ValueContext';
+import regeneratorRuntime from "regenerator-runtime";
 
 const Item = ({ item }) => (
   <View style={styles.item}>
